@@ -6,5 +6,11 @@ type Props = {
 };
 
 export function AppWrapper({ children }: Props) {
-  return <div className="flex overflow-hidden h-[calc(100vh-var(--title-bar-height))]">{children}</div>;
+  return (
+    <div
+      className={`flex overflow-hidden ${window.csdm.isWeb ? 'h-screen' : 'h-[calc(100vh-var(--title-bar-height))]'}`}
+    >
+      {children}
+    </div>
+  );
 }

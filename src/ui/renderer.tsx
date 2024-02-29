@@ -1,3 +1,4 @@
+import './web-preload';
 globalThis.logger = window.csdm.logger;
 import React from 'react';
 import ReactDOM from 'react-dom/client';

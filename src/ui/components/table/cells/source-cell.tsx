@@ -40,7 +40,7 @@ function useDemoSourceImageSrc(source: DemoSource) {
       return assertNever(source, `Unknown source: ${source}`);
   }
 
-  return `file://${window.csdm.IMAGES_FOLDER_PATH}/sources/${fileName}`;
+  return `${window.csdm.IMAGES_FOLDER_PATH}/sources/${fileName}`;
 }
 
 type Props = CellProps<{ source: DemoSource }>;

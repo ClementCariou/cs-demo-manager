@@ -61,6 +61,26 @@ async function buildWebSocketServerBundle() {
   });
 }
 
+async function buildWebServerBundle() {
+  await esbuild.build({
+    entryPoints: [path.join(srcFolderPath, 'server/web-server.ts')],
+    outfile: path.join(outFolderPath, 'web-server.js'),
+    bundle: true,
+    sourcemap: 'linked',
+    minify: true,
+    platform: 'node',
+    target: `node${node}`,
+    mainFields: ['module', 'main'],
+    external: ['pg-native'],
+    define: {
+      ...commonDefine,
+      'process.env.STEAM_API_KEYS': `"${process.env.STEAM_API_KEYS}"`,
+      'process.env.FACEIT_API_KEY': `"${process.env.FACEIT_API_KEY}"`,
+    },
+    plugins: [nativeNodeModulesPlugin],
+  });
+}
+
 async function buildMainProcessBundle() {
   await esbuild.build({
     entryPoints: [path.join(srcFolderPath, 'electron-main/main.ts')],
@@ -125,7 +145,13 @@ async function buildCliBundle() {
 
 try {
   await buildRendererProcessBundle();
-  await Promise.all([buildWebSocketServerBundle(), buildMainProcessBundle(), buildPreloadBundle(), buildCliBundle()]);
+  await Promise.all([
+    buildWebSocketServerBundle(),
+    buildWebServerBundle(),
+    buildMainProcessBundle(),
+    buildPreloadBundle(),
+    buildCliBundle(),
+  ]);
 } catch (error) {
   console.error(error);
   process.exit(1);

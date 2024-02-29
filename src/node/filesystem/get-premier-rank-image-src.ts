@@ -8,5 +8,5 @@ export function getPremierRankImageSrc(rank: PremierRank) {
   const tier = getPremierRankTier(rank);
   const imageSrc = path.join(imagesFolderPath, 'ranks', 'premier', `tier-${tier}.png`);
 
-  return `file://${imageSrc}`;
+  return `${imageSrc}`;
 }

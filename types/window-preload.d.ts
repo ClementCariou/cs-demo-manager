@@ -31,6 +31,7 @@ declare global {
     getAppInformation: () => AppInformation;
     isMac: boolean;
     isLinux: boolean;
+    isWeb: boolean;
     unknownMapThumbnailFilePath: string;
     IMAGES_FOLDER_PATH: string;
     ADDITIONAL_ARGUMENTS: string[];

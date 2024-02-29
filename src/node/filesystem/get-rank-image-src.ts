@@ -6,5 +6,5 @@ export function getRankImageSrc(rank: Rank) {
   const imagesFolderPath = getImagesFolderPath();
   const imageSrc = path.join(imagesFolderPath, 'ranks', 'competitive', `${rank}.png`);
 
-  return `file://${imageSrc}`;
+  return `${imageSrc}`;
 }

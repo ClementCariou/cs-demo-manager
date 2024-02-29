@@ -8,6 +8,11 @@ import { UpdateAvailableButton } from './update-available-button';
 
 export function TitleBar() {
   const databaseStatus = useDatabaseStatus();
+
+  if (window.csdm.isWeb) {
+    return <></>;
+  }
+
   const onDoubleClick = async () => {
     if (!window.csdm.isMac) {
       return;

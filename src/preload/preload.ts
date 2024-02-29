@@ -71,6 +71,7 @@ const api: PreloadApi = {
   isMac,
   isWindows,
   isLinux,
+  isWeb: false,
   unknownMapThumbnailFilePath: getUnknownMapThumbnailFilePath(),
   getMapRadarBase64,
   getMapLowerRadarBase64,
@@ -83,7 +84,7 @@ const api: PreloadApi = {
   readTableState,
   getDefaultPlayerAvatar: () => {
     const imagesFolderPath = getImagesFolderPath();
-    return `file://${path.join(imagesFolderPath, 'avatar.jpg')}`;
+    return `${path.join(imagesFolderPath, 'avatar.jpg')}`;
   },
   getRankImageSrc,
   getPremierRankImageSrc,
@@ -92,7 +93,7 @@ const api: PreloadApi = {
   elementToImage,
 
   getAudio: (audioFileName: string) => {
-    return new Audio(`file://${path.join(getStaticFolderPath(), 'sounds', audioFileName)}`);
+    return new Audio(`${path.join(getStaticFolderPath(), 'sounds', audioFileName)}`);
   },
 
   showMainWindow: () => {

@@ -97,7 +97,7 @@ export class WebSocketClient {
 
   private connect = () => {
     logger.log('WS:: connecting to server');
-    const url = `ws://localhost:${WEB_SOCKET_SERVER_PORT}?process=renderer`;
+    const url = `ws://${location.hostname}:${WEB_SOCKET_SERVER_PORT}?process=renderer`;
     this.socket = new WebSocket(url);
     this.socket.addEventListener('open', this.onConnect);
     this.socket.addEventListener('close', this.onDisconnect);

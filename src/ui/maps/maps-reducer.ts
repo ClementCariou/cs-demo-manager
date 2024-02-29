@@ -9,7 +9,7 @@ function sortMapsByName(map1: Map, map2: Map) {
 
 type MapsState = {
   readonly entities: Map[];
-  // Used to read images on the FS only if maps have changed (reduce file:// requests).
+  // Used to read images on the FS only if maps have changed (reduce  requests).
   readonly cacheTimestamp: number;
 };
 

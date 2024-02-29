@@ -39,6 +39,6 @@ export function useGetMapRadarSrc() {
       return undefined;
     }
 
-    return `file://${radarFilePath}?timestamp=${cacheTimestamp}`;
+    return `${radarFilePath}?timestamp=${cacheTimestamp}`;
   };
 }

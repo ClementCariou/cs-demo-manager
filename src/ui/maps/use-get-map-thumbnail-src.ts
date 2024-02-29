@@ -27,6 +27,6 @@ export function useGetMapThumbnailSrc() {
 
     const thumbnailFilePath = map?.thumbnailFilePath ?? window.csdm.unknownMapThumbnailFilePath;
 
-    return `file://${thumbnailFilePath}?timestamp=${cacheTimestamp}`;
+    return `${thumbnailFilePath}?timestamp=${cacheTimestamp}`;
   };
 }
